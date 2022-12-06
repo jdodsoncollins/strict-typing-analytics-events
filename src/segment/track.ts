@@ -1,4 +1,4 @@
-import { SegmentPropertiesMap, SegmentEventsMap } from "./maps";
+import { SegmentPropertiesMap, SegmentEventsMap, MatchesSomeKeysWithValue } from "./maps";
 import { MapValueType } from "./types";
 
 export const telemetry = {
@@ -7,7 +7,7 @@ export const telemetry = {
 
 export const createTrackEvent = async function(
     event: keyof typeof SegmentEventsMap,
-    props: Partial<{ [key in keyof typeof SegmentPropertiesMap]: any }> = {},
+    props: MatchesSomeKeysWithValue<typeof SegmentPropertiesMap, any>
   ): Promise<unknown> {
     return telemetry.sendEvent(event, props);
   }
