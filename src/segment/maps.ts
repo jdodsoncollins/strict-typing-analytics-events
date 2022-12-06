@@ -15,7 +15,6 @@ export enum SegmentPropertiesMap {
 export type MatchesSomeKeysWithValue<K, V> = Partial<{ [key in keyof K]: V }>
 
 export const SegmentEventProperties: MatchesSomeKeysWithValue<typeof SegmentEventsMap, MatchesSomeKeysWithValue<typeof SegmentPropertiesMap, string>> = {
-  /* user, account deletion properties, email preferences */
   WORKSPACE_BILLING_PAGE_VIEWED: {
     USER_ID: "123"
   },
