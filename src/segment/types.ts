@@ -1,12 +1,1 @@
-type Obj = {
-    "foo": string,
-    "bar": string,
-    "baz"?: string,
-    "quz"?: string
-  }
-  
-  const obj: Obj= {
-    "foo": "asdf",
-    "bar": "asdf"
-  }
-  
+export type MapValueType<A> = A extends Map<any, infer V> ? V : never;

@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { telemetry } from './segment/calls'
+import { createTrackEvent } from './segment/track'
+import { SegmentEventsMap } from './segment/maps'
 
 function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    telemetry.sendEvent('name', {})
+    // the following will fail type checking unless both event name and properties are in maps.ts
+    // todo: split up typings so that each event name has unique properties that typecheck
+    createTrackEvent("WORKSPACE_BILLING_PAGE_VIEWED", {
+      'USER_ID': 123
+    })
   }, [])
 
   return (
