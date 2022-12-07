@@ -1,28 +1,24 @@
 import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { createTrackEvent } from './segment/track'
-import { SegmentEventsMap } from './segment/maps'
+import { trackEvent } from './analytics/track'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   useEffect(() => {
-    // the following will fail type checking unless both event name and properties are in maps.ts
-    createTrackEvent('WORKSPACE_BILLING_PAGE_VIEWED', {
-      'USER_ID': '123',
-      'PAGE': 'asdf'
+    // start here -- see what happens if you change param 1 or the param 2 object without updating track.ts
+    trackEvent("Workspace Plan Page Viewed", {
+      ref: "1",
+      workspace_id: "2",
     });
-    createTrackEvent('WORKSPACE_MIGRATED', {
-      'USER_ID': '123',
-      'PAGE': 'asdf',
+    trackEvent("Site Plan Page Viewed", {
+      ref: "1",
+      site_id: "2",
     });
-    createTrackEvent('ASSETS_UPLOADED', {
-      'USER_ID': '123',
-      'PAGE': 'asdf',
-      'TEST': 'asdf',
-    })
   }, [])
+
+  // everything below is vite react starter sample code
+  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
