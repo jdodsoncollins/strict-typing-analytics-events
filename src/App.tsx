@@ -9,11 +9,11 @@ function App() {
     // start here -- see what happens if you change param 1 or the param 2 object without updating track.ts
     trackEvent("Workspace Plan Page Viewed", {
       ref: "1",
-      workspace_id: "2",
+      'workspace id': "2",
     });
     trackEvent("Site Plan Page Viewed", {
       ref: "1",
-      site_id: "2",
+      'site id': "2",
     });
   }, [])
 
