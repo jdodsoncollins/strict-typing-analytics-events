@@ -10,15 +10,17 @@ function App() {
   useEffect(() => {
     // the following will fail type checking unless both event name and properties are in maps.ts
     createTrackEvent('WORKSPACE_BILLING_PAGE_VIEWED', {
-      'USER_ID': '123'
+      'USER_ID': '123',
+      'PAGE': 'asdf'
     });
     createTrackEvent('WORKSPACE_MIGRATED', {
       'USER_ID': '123',
-      'SOURCE': 'dashboard',
+      'PAGE': 'asdf',
     });
     createTrackEvent('ASSETS_UPLOADED', {
       'USER_ID': '123',
-      'SOURCE': 'dashboard'
+      'PAGE': 'asdf',
+      'TEST': 'asdf',
     })
   }, [])
 

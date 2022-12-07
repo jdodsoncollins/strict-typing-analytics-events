@@ -1,4 +1,4 @@
-import { SegmentEventsMap, SegmentEventProperties } from "./maps";
+import { SegmentEventsMap, SegmentEventProperties, segmentPropertiesForEvent } from "./maps";
 
 export const telemetry = {
     // basic mock async function; would normally use a real segment call
@@ -7,8 +7,8 @@ export const telemetry = {
 }
 
 export const createTrackEvent = async function(
-    event: keyof typeof SegmentEventsMap,
-    props: typeof SegmentEventProperties[typeof event] // to check for any valid property -- MatchesSomeKeysWithValue<typeof SegmentPropertiesMap, any>
+    eventName: keyof typeof SegmentEventsMap,
+    props: SegmentEventProperties[typeof eventName] // to check for any valid property -- MatchesSomeKeysWithValue<typeof SegmentPropertiesMap, any>
   ): Promise<unknown> {
-    return telemetry.sendEvent(event, props);
+    return telemetry.sendEvent(eventName, props);
   }
