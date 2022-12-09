@@ -1,13 +1,14 @@
-interface PersistentProps {
-    ref: string;
+type plans = 'starter' | 'static' | 'cms' | 'business'
+
+interface PlanUpdateSharedProps {
+    'new plan': plans;
 }
   
-// Define interfaces for the props payload for a given event
-interface WorkspacePlanPageViewedEventProps extends PersistentProps {
+interface WorkspacePlanPageViewedEventProps extends PlanUpdateSharedProps {
     'workspace id': string;
 }
 
-interface SitePlanPageViewedEventProps extends PersistentProps {
+interface SitePlanPageViewedEventProps extends PlanUpdateSharedProps {
     'site id': string;
 }
 

@@ -8,11 +8,11 @@ function App() {
   useEffect(() => {
     // start here -- see what happens if you change param 1 or the param 2 object without updating track.ts
     trackEvent("Workspace Plan Page Viewed", {
-      ref: "1",
+      'new plan': "starter",
       'workspace id': "2",
     });
     trackEvent("Site Plan Page Viewed", {
-      ref: "1",
+      'new plan': "cms",
       'site id': "2",
     });
   }, [])

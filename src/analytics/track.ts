@@ -1,10 +1,26 @@
 import { EventMap } from "./event_types";
 
+type EventMapWithPersistentProps<T extends keyof EventMap> = EventMap[T] & {
+  // add properties here that we'd like to automatically add
+  ref?: string | null
+}
+
+const addPersistentProps = <K extends keyof EventMap>(props: EventMapWithPersistentProps<K>): EventMap[K] | EventMapWithPersistentProps<K> => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+  if (!Object.keys(props).includes('ref') && urlParams.get('ref')) {
+    // if a call wants to override `ref` with a value of `null`, we want to respect that
+    props.ref = urlParams.get('ref')
+  }
+  return props
+}
+
 const telemetry = {
-  // basic mock async function; would normally use a real segment call
-  // return type handling out of scope of this; we are focused on input params
+  // mock call
+  // includes example of adding some props automatiacally if present in URL
   sendEvent: <K extends keyof EventMap>(eventName: K, props: EventMap[K]) => {
-    console.log({ eventName, props });
+    const propsWithPersistent = addPersistentProps(props) // if the persistent props function is not wanted, discard addPersistentProps(...) usage
+    console.log({ eventName, propsWithPersistent });
     return new Promise(res => setTimeout(res, 100)) }
 }
 
