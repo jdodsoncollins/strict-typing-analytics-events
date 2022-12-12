@@ -10,7 +10,7 @@ export interface EventMap {
 
 // use interface "extends" to set collections of props that are shared across multiple events
 interface IPlanUpdateSharedProps {
-    'new plan': string,
+    'new plan': 'starter' | 'basic' | 'cms',
     'previous plan'?: string
 }
 
