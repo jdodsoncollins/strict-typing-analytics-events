@@ -3,6 +3,6 @@ import { WorkspaceContextSharedProps, WorkspacePlanModifiedSharedProps, SitePlan
 // define properties for each event
 export interface WorkspacePlanPageViewedEventProps extends WorkspaceContextSharedProps, WorkspacePlanModifiedSharedProps, SharedProps {}
 
-export interface SitePlanPageViewedEventProps extends SitePlanUpdateSharedProps, SharedProps {
-    'workspace id': string
+export interface SitePlanPageViewedEventProps extends Omit<SitePlanUpdateSharedProps, 'new plan'>, SharedProps {
+    'tab selected': string,
 }

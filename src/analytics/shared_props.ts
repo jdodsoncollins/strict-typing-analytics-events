@@ -5,7 +5,6 @@ export interface SharedProps {
 export type SitePlanType = 'starter' | 'basic' | 'cms'
 export type WorkspacePlanType = 'starter' | 'growth' | 'freelancer' | 'agency' | 'core' | 'enterprise'
 
-// use interface "extends" to set collections of props that are shared across multiple events
 export interface SitePlanUpdateSharedProps {
     'site id': string
     'new plan': SitePlanType,

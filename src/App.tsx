@@ -17,9 +17,8 @@ function App() {
       'workspace slug': 'asdf',
     });
     trackEvent('Site Plan Page Viewed', {
-      'new plan': 'basic',
-      'workspace id': 'asdf',
       'site id': 'asdf',
+      'tab selected': 'business'
     });
   }, [])
 
