@@ -1,29 +1,27 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import { trackEvent } from './analytics/track'
+import { useEffect, useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
+import { trackEvent } from "./analytics/track";
 
 function App() {
-
   useEffect(() => {
     // start here -- see what happens if you change param 1 or the param 2 object without updating track.ts
-    trackEvent('Workspace Plan Page Viewed', {
-      'workspace id': 'asdf',
-      'workspace plan type': 'agency',
-      'workspace seat count': 0,
-      'workspace is enterprise': false,
-      'workspace initial number of seats': 0,
-      'workspace new number of seats': 1,
-      'workspace slug': 'asdf',
+    trackEvent("Workspace Plan Page Viewed", {
+      "workspace id": "1",
+      "workspace is enterprise": false,
+      "workspace plan type": "agency",
+      "workspace slug": "asdf",
+      "workspace seat count": 0,
     });
-    trackEvent('Site Plan Page Viewed', {
-      'site id': 'asdf',
-      'tab selected': 'business'
+    trackEvent("Site Plan Page Viewed", {
+      "site id": "2",
+      "site plan type": "basic",
+      "site slug": "21",
     });
-  }, [])
+  }, []);
 
   // everything below is vite react starter sample code
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -48,7 +46,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
