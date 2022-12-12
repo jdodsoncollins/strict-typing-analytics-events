@@ -1,4 +1,3 @@
-
 /**
  * In this file we defined a map of analytics events names:properties that are sent to our analytics provider.
  */
