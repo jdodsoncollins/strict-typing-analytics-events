@@ -16,7 +16,7 @@ export type WorkspacePlanType =
 
 // Shared props that all of the events must include
 export interface SharedProps {
-  ref?: string;
+  ref?: string | null;
 }
 
 // Context props
