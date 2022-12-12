@@ -4,6 +4,7 @@
  */
 
 // Types definitions
+export type BillingFrequencyType = "month" | "year";
 export type SitePlanType = "starter" | "basic" | "cms";
 export type WorkspacePlanType =
   | "starter"
@@ -15,7 +16,7 @@ export type WorkspacePlanType =
 
 // Shared props that all of the events must include
 export interface SharedProps {
-  ref?: string | null;
+  ref?: string;
 }
 
 // Context props
@@ -27,22 +28,22 @@ export interface WorkspaceContextSharedProps {
   "workspace seat count": number;
 }
 
-// Specific events shared props
-export interface WorkspacePlanModifiedSharedProps {
-  "initial plan level"?: string;
-  "initial plan frequency"?: "month" | "year";
-  "new plan level"?: string;
-  "new plan frequency"?: "month" | "year";
-  "workspace initial number of seats": number;
-  "workspace new number of seats": number;
-  "value of new plan"?: number;
-  "charged amount"?: number;
-  "promotion applied"?: boolean;
-  "promotion value"?: number;
+export interface SiteContextSharedProps {
+  "site id": string;
+  "site plan type": SitePlanType;
+  "site slug": string;
 }
 
-export interface SitePlanUpdateSharedProps {
-  "site id": string;
-  "new plan": SitePlanType;
-  "previous plan"?: string;
+// Specific events shared props
+export interface PlanModifiedSharedProps {
+  "initial plan level": WorkspacePlanType | SitePlanType;
+  "initial plan frequency": BillingFrequencyType;
+  "new plan level": WorkspacePlanType | SitePlanType;
+  "new plan frequency": BillingFrequencyType;
+  "workspace initial number of seats"?: number;
+  "workspace new number of seats"?: number;
+  "value of new plan": number;
+  "charged amount": number;
+  "promotion applied": boolean;
+  "promotion value"?: number;
 }

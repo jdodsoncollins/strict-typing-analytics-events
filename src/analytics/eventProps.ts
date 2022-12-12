@@ -1,8 +1,23 @@
-import { WorkspaceContextSharedProps, WorkspacePlanModifiedSharedProps, SitePlanUpdateSharedProps, SharedProps } from './sharedProps'
+/**
+ * In this file we defined analytics events properties that are part of a given event.
+ * All analytics events should have its correspondent properties definition.
+ */
 
-// define properties for each event
-export interface WorkspacePlanPageViewedEventProps extends WorkspaceContextSharedProps, WorkspacePlanModifiedSharedProps, SharedProps {}
+import * as Props from "./sharedProps";
 
-export interface SitePlanPageViewedEventProps extends SitePlanUpdateSharedProps, SharedProps {
-    'workspace id': string
-}
+// Define the event properties for each event
+
+// Workspace events
+export interface WorkspacePlanPageViewedEventProps
+  extends Props.WorkspaceContextSharedProps,
+    Props.SharedProps {}
+
+// Site events
+export interface SitePlanPageViewedEventProps
+  extends Props.SiteContextSharedProps,
+    Props.SharedProps {}
+
+// General events
+export interface PlanModifiedEventProps
+  extends Props.PlanModifiedSharedProps,
+    Props.SharedProps {}
