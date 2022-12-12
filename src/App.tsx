@@ -8,8 +8,13 @@ function App() {
   useEffect(() => {
     // start here -- see what happens if you change param 1 or the param 2 object without updating track.ts
     trackEvent('Workspace Plan Page Viewed', {
-      'new plan': 'starter',
       'workspace id': 'asdf',
+      'workspace plan type': 'agency',
+      'workspace seat count': 0,
+      'workspace is enterprise': false,
+      'workspace initial number of seats': 0,
+      'workspace new number of seats': 1,
+      'workspace slug': 'asdf',
     });
     trackEvent('Site Plan Page Viewed', {
       'new plan': 'basic',

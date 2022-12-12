@@ -1,11 +1,6 @@
-import { EventMap } from "./event_types";
+import { EventMap } from "./event_map";
 
-type EventMapWithPersistentProps<T extends keyof EventMap> = EventMap[T] & {
-  // add properties here that we'd like to automatically add
-  ref?: string | null
-}
-
-const addPersistentProps = <K extends keyof EventMap>(props: EventMapWithPersistentProps<K>): EventMap[K] | EventMapWithPersistentProps<K> => {
+const addPersistentProps = <K extends keyof EventMap>(props: EventMap[K]): EventMap[K] => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
   if (!Object.keys(props).includes('ref') && urlParams.get('ref')) {
