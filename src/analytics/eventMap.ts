@@ -1,4 +1,4 @@
-import { SitePlanPageViewedEventProps, WorkspacePlanPageViewedEventProps } from './event_props';
+import { SitePlanPageViewedEventProps, WorkspacePlanPageViewedEventProps } from './eventProps';
 // event objects will not pass typechecking if uppercase characters are present in any property keys, with custom error message 
 type lowercaseKeys<K> = keyof K extends Lowercase<string> ? { [P in keyof K]: K[P] } : 'property interface keys should be lowercase'
 

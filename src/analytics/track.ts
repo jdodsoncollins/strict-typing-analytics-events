@@ -1,4 +1,4 @@
-import { EventMap } from "./event_map";
+import { EventMap } from "./eventMap";
 
 const addPersistentProps = <K extends keyof EventMap>(props: EventMap[K]): EventMap[K] => {
     const queryString = window.location.search;
