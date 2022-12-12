@@ -21,7 +21,8 @@ const telemetry = {
   sendEvent: <K extends keyof EventMap>(eventName: K, props: EventMap[K]) => {
     const propsWithPersistent = addPersistentProps(props) // if the persistent props function is not wanted, discard addPersistentProps(...) usage
     console.log({ eventName, propsWithPersistent });
-    return new Promise(res => setTimeout(res, 100)) }
+    return new Promise(res => setTimeout(res, 100)) 
+  }
 }
 
 export function trackEvent<K extends keyof EventMap>(
